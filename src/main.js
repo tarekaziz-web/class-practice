@@ -1,0 +1,3 @@
+
+
+setupCounter(document.querySelector('#counter'))
