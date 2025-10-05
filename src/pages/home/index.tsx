@@ -7,11 +7,8 @@ import MainSection from "@/pages/home/MainSection";
 function HomePage() {
     return (
         <>
-
             <Banner />
             <MainSection />
-
-
         </>
     );
 }
