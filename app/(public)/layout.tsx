@@ -1,14 +1,24 @@
-import Footer from "@/components/section/Footer";
-import Header from "@/components/section/Header";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { ReactNode } from "react";
+
 
 function PublicLayout({ children }: { children: ReactNode }) {
     return (
-        <div>
-            <Header />
-            {children}
-            <Footer />
-        </div>
+        <header>
+            <nav>
+                <ul className=" flex justify-center gap-4 ">
+                    <li>
+                        <Button>
+                            <Link href={"/"}>Home</Link>
+                        </Button>
+                    </li>
+                </ul>
+                <div>
+                    {children}
+                </div>
+            </nav>
+        </header>
     );
 }
 

@@ -1,20 +1,40 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 
 
-const HomePage = () => {
+const HomePage = async () => {
 
-    const [count, setCount] = useState(0);
+    const res = await fetch("https://abc.madrasatuahmad.com/api/courses", {
+        cache: "no-cache"
+    })
+
+    const data = await res.json();
+
+    const courses = data.data.data
+
+    console.log(courses);
+
+
 
     return (
-        <div>
+        <div className=" max-w-4xl mx-auto">
 
-            <Image width={500} height={500} src="/pexels-8.jpg" alt="image" />
+            {courses.map((course: any) => (
+                <div key={course.id}>
+                    <h1 className=" text-2xl "> ({course.id}) {course.title} </h1>
+                    <Button asChild>
+                        <Link href={`/${course.id}`}>
+                            Read more
+                        </Link>
+                    </Button>
 
-            <Button onClick={() => setCount(count + 1)}> {count}</Button>
+                </div>
+
+            ))}
+
+
         </div>
     );
 };
