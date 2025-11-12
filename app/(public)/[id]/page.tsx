@@ -10,7 +10,7 @@ async function AboutPage({ params }: { params: { id: string } }) {
     const singleCourse = data.data;
 
     return (
-        <div> {singleCourse.title}</div>
+        <div> {singleCourse?.title}</div>
     );
 }
 
